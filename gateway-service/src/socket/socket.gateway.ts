@@ -100,6 +100,10 @@ export class SocketGateway implements OnGatewayConnection {
     @ConnectedSocket() client: Socket,
   ) {
     body = JSON.parse(body);
+    if (!body.roomId) {
+      client.emit('error', `missing payload`);
+      throw new WsException('missing payload');
+    }
     let theRoom = await this.socketService.getRoomInfo(client, body.roomId);
     console.log('client.data.userId:', client.data.userId);
 
@@ -110,24 +114,10 @@ export class SocketGateway implements OnGatewayConnection {
 
     client.join(theRoom.name); // Add client to the specified room
 
-    // this.server.to(theRoom.name).except(client.id).emit('new_user_joined', {
-    //   userId: theUser.id,
-    //   userName: theUser.name,
-    // });
-
     client.broadcast.to(theRoom.name).emit('new_user_joined', {
       userId: theUser.id,
       userName: theUser.name,
     });
-
-    // client.emit('new_user_joined', {
-    //   userId: theUser.id,
-    //   userName: theUser.name,
-    // });
-
-    // console.log(`Client ${client.id} joined room ${room}`);
-    // client.emit('message', `Welcome to room: ${room}`);
-    // console.log('client.rooms:', client.rooms);
   }
 
   @SubscribeMessage('userTyping')
