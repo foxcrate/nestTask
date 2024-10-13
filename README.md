@@ -28,7 +28,7 @@
   - Go to each microservice folder and run 'npm install'
   - Create 3 .env files: in Gatway microservice (only contains JWT_SECRET), User microservice (only contains same JWT_SECRET) and Database microservice (contains: DB_HOST, DB_PORT, DB_USERNAME, DB_PASSWORD, DB_NAME)
   - The db tables will be created automaticaly
-  - Go to each micro-service folder and run 'npm run start:local'
+  - Go to each micro-service folder and run 'npm run start:dev'
   - Register a user (provide a name, email and password)
   - Signin to your account (provide email and password)
   - Create a room (provider a name), Authorize the request with Bearer Token
