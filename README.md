@@ -11,6 +11,8 @@
   - Use interfaces to define repository methods, promoting loose coupling and easier testing.
 
 - Features:
+    Auth System:
+  - Registration and authenticate users using JWT token
     Real-Time Messaging:
   - Implement a Socket.IO server that allows users to connect, join rooms, and send messages.
   - Implement typing indicators to show when users are typing in a room.
@@ -21,3 +23,13 @@
 
 - Notifications:
   - Implement a notification system that alerts users when they receive direct messages or when someone joins their room.
+
+## how to run application locally
+  - Go to each microservice folder and run 'npm install'
+  - Create 3 .env files: in Gatway microservice (only contains JWT_SECRET), User microservice (only contains same JWT_SECRET) and Database microservice (contains: DB_HOST, DB_PORT, DB_USERNAME, DB_PASSWORD, DB_NAME)
+  - The db tables will be created automaticaly
+  - Go to each micro-service folder and run 'npm run start:local'
+  - Register a user (provide a name, email and password)
+  - Signin to your account (provide email and password)
+  - Create a room (provider a name), Authorize the request with Bearer Token
+  - Log to the socket (provide the bearer_token in the headers)
