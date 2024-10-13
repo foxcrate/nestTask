@@ -1,4 +1,4 @@
-# Real-Time Chat Application with Socket.IO and Postgress
+# Real-Time Microservices Chat Application with Socket.IO, Postgress and Redis
 
 ## Finished Tasks
 - Setup:
