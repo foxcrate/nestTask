@@ -1,4 +1,4 @@
-# nestTask
+# Real-Time Chat Application with Socket.IO and Postgress
 
 ## Finished Tasks
 - Setup:
